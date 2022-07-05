@@ -12,6 +12,8 @@ public class playerController : MonoBehaviour
     Rigidbody rb;
     bool gameover;
 
+    public Camera camera;
+
     private void Awake()
     {
 
@@ -33,6 +35,7 @@ public class playerController : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0) )
             {
+
                
                 rb.velocity = new Vector3(speed, 0, 0);
                 started = true;
@@ -57,10 +60,13 @@ public class playerController : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButton(0) && !gameover)
+        if(Input.GetMouseButtonDown(0) && !gameover)
         {
-            player.GetComponentInChildren<Animator>().Play("Run_N");
-            SwitchDirection();
+            
+             
+                    player.GetComponentInChildren<Animator>().Play("Run_N");
+                    SwitchDirection();
+            
             
         }
     }
